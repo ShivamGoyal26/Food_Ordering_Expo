@@ -1,40 +1,35 @@
-import { Link, Stack } from "expo-router";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
+import { useTheme } from "@shopify/restyle";
+import { useMemo } from "react";
+import { ColorTheme, Theme } from "../theme";
+import { Link } from "expo-router";
 
-import { Text, View } from "@/src/components/Themed";
+const NotFound = () => {
+  const theme = useTheme<Theme>();
+  const { colors } = theme;
+  const styles = useMemo(() => createStyles(colors), [colors]);
 
-export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: "Oops!" }} />
-      <View style={styles.container}>
-        <Text style={styles.title}>This screen doesn't exist.</Text>
-
-        <Link href="/" style={styles.link}>
-          <Text style={styles.linkText}>Go to home screen!</Text>
-        </Link>
-      </View>
-    </>
+    <View style={styles.screen}>
+      <Text style={styles.title}>Requested content not found</Text>
+      <Link href={"/"}>
+        <Text style={styles.title}>GO Home</Text>
+      </Link>
+    </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: "#2e78b7",
-  },
-});
+const createStyles = (theme: ColorTheme) =>
+  StyleSheet.create({
+    screen: {
+      backgroundColor: theme.mainBackground,
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    title: {
+      color: theme.mainForeground,
+    },
+  });
+
+export default NotFound;

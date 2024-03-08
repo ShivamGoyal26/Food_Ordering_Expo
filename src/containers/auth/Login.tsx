@@ -1,16 +1,19 @@
 import CustomHeader from "@/src/components/CustomHeader";
 import React, { useMemo } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@shopify/restyle";
+import { useRouter } from "expo-router";
 
 // Files
-import Back from "@/assets/svg/back.svg";
-import { getScreenHeight, getScreenWidth } from "@/src/utils/dimensions";
+import { getScreenHeight } from "@/src/utils/dimensions";
 import { ColorTheme, Theme } from "@/src/theme";
+import { Back } from "@/src/constants/svg";
+import fonts from "@/src/constants/fonts";
 
 const Login = () => {
   const theme = useTheme<Theme>();
+  const router = useRouter();
   const { colors } = theme;
   const styles = useMemo(() => createStyles(colors), [colors]);
 
@@ -18,7 +21,7 @@ const Login = () => {
     <SafeAreaView edges={["top"]} style={styles.screen}>
       <View style={styles.screen}>
         <CustomHeader
-          leftAction={{ pathname: "/details", params: { name: "Bacon" } }}
+          leftAction={{ pathname: "/auth/signup", params: { name: "Bacon" } }}
           leftIcon={
             <Back
               fill={colors.mainForeground}
@@ -28,7 +31,11 @@ const Login = () => {
           }
           title="Login"
         />
-        <Text>Home Screen</Text>
+        <View style={styles.content}>
+          <Pressable onPress={() => router.replace("/home/")}>
+            <Text style={styles.title}>Get In</Text>
+          </Pressable>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -39,6 +46,14 @@ const createStyles = (theme: ColorTheme) =>
     screen: {
       flex: 1,
       backgroundColor: theme.mainBackground,
+    },
+    title: {
+      fontFamily: fonts.regular,
+    },
+    content: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
     },
   });
 

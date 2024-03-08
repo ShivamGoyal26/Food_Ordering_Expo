@@ -6,6 +6,7 @@ import { useTheme } from "@shopify/restyle";
 // Files
 import { getScreenHeight } from "../utils/dimensions";
 import { ColorTheme, Theme } from "../theme";
+import fonts from "../constants/fonts";
 
 type CustomHeaderProps = {
   title: string;
@@ -47,6 +48,7 @@ const createStyles = (theme: ColorTheme) =>
 
     title: {
       color: theme.mainForeground,
+      fontFamily: fonts.medium,
     },
 
     actionButton: {

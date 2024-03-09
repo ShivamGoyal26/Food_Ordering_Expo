@@ -1,9 +1,10 @@
 import { createTheme } from "@shopify/restyle";
 // import { Fonts } from "../constants";
 import { getScreenHeight } from "../utils/dimensions";
+import Fonts from "../constants/fonts";
 
 const palette = {
-  purple: "#5A31F4",
+  purple: "#008080",
   white: "#FFFFFF",
   black: "#222222",
   darkGray: "#A9A9A9",
@@ -39,40 +40,40 @@ export const theme = createTheme({
   },
   textVariants: {
     defaults: {
-      fontSize: getScreenHeight(1.4),
+      fontSize: getScreenHeight(1.8),
       lineHeight: 24,
       color: "mainForeground",
-      // fontFamily: Fonts.regular,
+      fontFamily: Fonts.regular,
     },
     body: {
       fontSize: getScreenHeight(1.4),
       lineHeight: 24,
       color: "borderColor",
-      // fontFamily: Fonts.regular,
+      fontFamily: Fonts.regular,
     },
     subtitle: {
       fontSize: getScreenHeight(1.4),
       lineHeight: 24,
       color: "mainForeground",
-      // fontFamily: Fonts.regular,
+      fontFamily: Fonts.regular,
     },
     title: {
       fontSize: getScreenHeight(1.6),
       lineHeight: 24,
       color: "mainForeground",
-      // fontFamily: Fonts.medium,
+      fontFamily: Fonts.medium,
     },
     heading: {
       fontSize: getScreenHeight(2),
       lineHeight: 24,
       color: "primaryCardBackground",
-      // fontFamily: Fonts.semibold,
+      fontFamily: Fonts.semibold,
     },
     error: {
       fontSize: getScreenHeight(1.3),
       lineHeight: 24,
       color: "error",
-      // fontFamily: Fonts.regular,
+      fontFamily: Fonts.regular,
     },
   },
   cardVariants: {

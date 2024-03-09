@@ -10,6 +10,7 @@ import { getScreenHeight } from "@/src/utils/dimensions";
 import { ColorTheme, Theme } from "@/src/theme";
 import { Back } from "@/src/constants/svg";
 import fonts from "@/src/constants/fonts";
+import routes from "@/src/constants/routes";
 
 const Login = () => {
   const theme = useTheme<Theme>();
@@ -21,7 +22,7 @@ const Login = () => {
     <SafeAreaView edges={["top"]} style={styles.screen}>
       <View style={styles.screen}>
         <CustomHeader
-          leftAction={{ pathname: "/auth/signup", params: { name: "Bacon" } }}
+          leftAction={{ pathname: "/signup", params: { name: "Bacon" } }}
           leftIcon={
             <Back
               fill={colors.mainForeground}
@@ -32,8 +33,12 @@ const Login = () => {
           title="Login"
         />
         <View style={styles.content}>
-          <Pressable onPress={() => router.replace("/home/")}>
+          <Pressable onPress={() => router.replace(routes.HOME)}>
             <Text style={styles.title}>Get In</Text>
+          </Pressable>
+
+          <Pressable onPress={() => router.replace(routes.BOTTOM_BAR)}>
+            <Text style={styles.title}>Go to Bottom Bar</Text>
           </Pressable>
         </View>
       </View>

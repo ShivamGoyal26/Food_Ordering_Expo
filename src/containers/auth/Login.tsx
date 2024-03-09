@@ -1,6 +1,6 @@
 import CustomHeader from "@/src/components/CustomHeader";
 import React, { useMemo } from "react";
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@shopify/restyle";
 import { useRouter } from "expo-router";
@@ -10,7 +10,7 @@ import { getScreenHeight } from "@/src/utils/dimensions";
 import { ColorTheme, Theme } from "@/src/theme";
 import { Back } from "@/src/constants/svg";
 import fonts from "@/src/constants/fonts";
-import routes from "@/src/constants/routes";
+import Text from "@/src/components/Text";
 
 const Login = () => {
   const theme = useTheme<Theme>();
@@ -33,7 +33,7 @@ const Login = () => {
           title="Login"
         />
         <View style={styles.content}>
-          <Pressable onPress={() => router.replace("/(home)/(tabs)/users")}>
+          <Pressable onPress={() => router.replace("/(home)/(tabs)/users/")}>
             <Text style={styles.title}>Get In</Text>
           </Pressable>
         </View>

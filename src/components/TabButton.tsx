@@ -3,6 +3,7 @@ import { Theme } from "@/src/theme";
 import { FontAwesome } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { getScreenHeight } from "../utils/dimensions";
 
 const TabButton = (props: any) => {
   const { item, accessibilityState, onPress } = props;
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: getScreenHeight(8),
   },
 });
 

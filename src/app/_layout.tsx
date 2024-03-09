@@ -1,4 +1,4 @@
-import { Redirect, Stack } from "expo-router";
+import { Redirect, Stack, useSegments } from "expo-router";
 import { ThemeProvider } from "@shopify/restyle";
 import { useColorScheme } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
@@ -15,6 +15,7 @@ import {
 // Files
 import { darkTheme, theme } from "../theme";
 import routes from "../constants/routes";
+import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,6 +23,8 @@ export default function Layout() {
   const [auth, setAuth] = useState(false);
 
   const [appIsReady, setAppIsReady] = useState(false);
+
+  console.log("Main Layout");
 
   useEffect(() => {
     async function prepare() {
@@ -57,11 +60,17 @@ export default function Layout() {
 
   return (
     <ThemeProvider theme={colorScheme === "light" ? theme : darkTheme}>
+      <StatusBar
+        style={colorScheme === "light" ? "dark" : "light"}
+        backgroundColor="red"
+      />
       <Stack
         screenOptions={{
           headerShown: false,
         }}
-      />
+      >
+        {/* <Stack.Screen name="modal" options={{ presentation: "modal" }} /> */}
+      </Stack>
       {auth ? (
         <Redirect href={"/(home)/(tabs)/users"} />
       ) : (

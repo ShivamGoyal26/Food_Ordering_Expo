@@ -1,12 +1,13 @@
 import { Link } from "expo-router";
 import React, { useMemo } from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import { useTheme } from "@shopify/restyle";
 
 // Files
 import { getScreenHeight } from "../utils/dimensions";
 import { ColorTheme, Theme } from "../theme";
 import fonts from "../constants/fonts";
+import Text from "./Text";
 
 type CustomHeaderProps = {
   title: string;
@@ -30,7 +31,7 @@ const CustomHeader = ({ title, leftIcon, leftAction }: CustomHeaderProps) => {
       )}
 
       <View style={styles.middleContainer}>
-        <Text style={styles.title}>{title}</Text>
+        <Text variant={"title"}>{title}</Text>
       </View>
       <View style={styles.actionButton} />
     </View>
@@ -44,11 +45,6 @@ const createStyles = (theme: ColorTheme) =>
       alignItems: "center",
       justifyContent: "space-between",
       height: getScreenHeight(10),
-    },
-
-    title: {
-      color: theme.mainForeground,
-      fontFamily: fonts.medium,
     },
 
     actionButton: {

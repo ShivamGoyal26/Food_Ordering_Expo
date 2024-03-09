@@ -10,14 +10,6 @@ export default function TabLayout() {
   const { colors } = theme;
   const screens = [
     {
-      name: "index",
-      label: "Home",
-      icon: "home",
-      badges: 2,
-      hide: null,
-      id: 1,
-    },
-    {
       name: "settings",
       label: "Settings",
       icon: "cog",
@@ -28,15 +20,15 @@ export default function TabLayout() {
     {
       name: "users",
       label: "Users",
-      icon: "cog",
+      icon: "user",
       badges: 0,
-      hide: true,
+      hide: false,
       id: 2,
     },
   ];
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "red", headerShown: false }}>
+    <Tabs screenOptions={{ headerShown: false }}>
       {screens.map((screen) => {
         return (
           <Tabs.Screen

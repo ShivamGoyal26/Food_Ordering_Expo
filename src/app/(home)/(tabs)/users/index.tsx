@@ -2,12 +2,15 @@ import Text from "@/src/components/Text";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 
-export default function Tab() {
+const Users = () => {
   const router = useRouter();
   return (
     <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-      <Text>USERS PAGE</Text>
-      <Text onPress={() => router.back()}>Go Back</Text>
+      <Text onPress={() => router.push("/(home)/(tabs)/users/adduser")}>
+        Users
+      </Text>
     </View>
   );
-}
+};
+
+export default Users;

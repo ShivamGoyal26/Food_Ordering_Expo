@@ -63,7 +63,7 @@ export default function Layout() {
         }}
       />
       {auth ? (
-        <Redirect href={routes.HOME} />
+        <Redirect href={"/(home)/(tabs)/users"} />
       ) : (
         <Redirect href={routes.LOGIN} />
       )}

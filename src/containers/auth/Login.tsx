@@ -33,12 +33,8 @@ const Login = () => {
           title="Login"
         />
         <View style={styles.content}>
-          <Pressable onPress={() => router.replace(routes.HOME)}>
+          <Pressable onPress={() => router.replace("/(home)/(tabs)/users")}>
             <Text style={styles.title}>Get In</Text>
-          </Pressable>
-
-          <Pressable onPress={() => router.replace(routes.BOTTOM_BAR)}>
-            <Text style={styles.title}>Go to Bottom Bar</Text>
           </Pressable>
         </View>
       </View>

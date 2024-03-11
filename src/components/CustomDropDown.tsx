@@ -1,27 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FlatList,
   Modal,
   Pressable,
+  StatusBar,
   StyleSheet,
   Text,
-  View,
 } from "react-native";
 import { getScreenHeight } from "../utils/dimensions";
 
-const CustomDropDown = ({ children, visible, dimissModal, overlay }) => {
-  const textRef = useRef(null);
+const CustomDropDown = ({
+  children,
+  visible,
+  dimissModal,
+  overlay,
+  textRef,
+}: any) => {
   const [position, setPosition] = useState(0);
 
-  const handleLayout = () => {
-    textRef.current.measure((x, y, width, height, pageX, pageY) => {
-      console.log(y, height, pageY);
-      setPosition(height + pageY + 20);
-    });
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      textRef.current.measure((x, y, width, height, pageX, pageY) => {
+        // height is the component height
+        console.log("pageY", pageY);
+        setPosition(height + pageY + StatusBar.currentHeight);
+      });
+    }, 300);
+  }, []);
 
   return (
-    <Pressable ref={textRef} onLayout={handleLayout}>
+    <Pressable>
       <Modal animationType="none" transparent={true} visible={visible}>
         <Pressable
           onPress={dimissModal}
@@ -31,8 +39,13 @@ const CustomDropDown = ({ children, visible, dimissModal, overlay }) => {
           ]}
         >
           <Pressable
-            onPress={() => console.log("Pressed")}
-            style={[styles.dropDown, { top: position, maxHeight: 200 }]}
+            style={[
+              styles.dropDown,
+              {
+                top: position,
+                maxHeight: 200,
+              },
+            ]}
           >
             <FlatList
               data={Array(100)}

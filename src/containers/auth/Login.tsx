@@ -1,6 +1,6 @@
 import CustomHeader from "@/src/components/CustomHeader";
-import React, { useMemo, useState } from "react";
-import { View, StyleSheet, Pressable } from "react-native";
+import React, { useMemo, useRef, useState } from "react";
+import { View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@shopify/restyle";
 import { useRouter } from "expo-router";
@@ -20,6 +20,7 @@ const Login = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   const [open, setOpen] = useState(false);
+  const textRef = useRef(null);
 
   const dimissModal = () => {
     setOpen(false);
@@ -39,10 +40,16 @@ const Login = () => {
           }
           title="Login"
         />
-        <Text style={{ marginTop: 1 }}>Login</Text>
-        <CustomDropDown overlay={true} dimissModal={dimissModal} visible={open}>
-          <Pressable onPress={() => setOpen((pre) => !pre)}>
-            <Text style={{ marginTop: 1 }}>DropDown</Text>
+        <Text>Login</Text>
+
+        <CustomDropDown
+          textRef={textRef}
+          overlay={true}
+          dimissModal={dimissModal}
+          visible={open}
+        >
+          <Pressable ref={textRef} onPress={() => setOpen((pre) => !pre)}>
+            <Text>DropDown test</Text>
           </Pressable>
         </CustomDropDown>
       </View>

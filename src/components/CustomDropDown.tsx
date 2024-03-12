@@ -20,10 +20,10 @@ const CustomDropDown = ({
 
   useEffect(() => {
     setTimeout(() => {
-      textRef.current.measure((x, y, width, height, pageX, pageY) => {
+      textRef.current?.measure((x, y, width, height, pageX, pageY) => {
         // height is the component height
         console.log("pageY", pageY);
-        setPosition(height + pageY + StatusBar.currentHeight);
+        setPosition(height + pageY);
       });
     }, 300);
   }, []);

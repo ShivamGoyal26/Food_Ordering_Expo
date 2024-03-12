@@ -1,6 +1,6 @@
 import { Redirect, Stack, useSegments } from "expo-router";
 import { ThemeProvider } from "@shopify/restyle";
-import { useColorScheme } from "react-native";
+import { ActivityIndicator, useColorScheme } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";

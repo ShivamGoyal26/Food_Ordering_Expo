@@ -4,7 +4,6 @@ import { View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@shopify/restyle";
 import { useRouter } from "expo-router";
-import * as Network from "expo-network";
 
 // Files
 import { getScreenHeight } from "@/src/utils/dimensions";
@@ -15,6 +14,9 @@ import Text from "@/src/components/Text";
 import CustomDropDown from "@/src/components/CustomDropDown";
 import NetworkStats from "@/src/components/NetworkStats";
 import AccelerometerStats from "@/src/components/AccelerometerStats";
+import useToggle from "@/src/hooks/useToggle";
+import ImagePicker from "@/src/components/ImagePicker";
+import CustomDocumentPicker from "@/src/components/DocumentPicker";
 
 const Login = () => {
   const theme = useTheme<Theme>();
@@ -60,7 +62,11 @@ const Login = () => {
           <View style={{ height: getScreenHeight(2) }} />
           <NetworkStats />
           <View style={{ height: getScreenHeight(2) }} />
-          <AccelerometerStats />
+          {/* <AccelerometerStats /> */}
+          <View style={{ height: getScreenHeight(2) }} />
+          {/* <ImagePicker /> */}
+          <View style={{ height: getScreenHeight(2) }} />
+          <CustomDocumentPicker />
           <View style={{ height: getScreenHeight(2) }} />
         </ScrollView>
       </View>

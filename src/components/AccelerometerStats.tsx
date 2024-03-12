@@ -76,7 +76,7 @@ const AccelerometerStats = () => {
           <Text style={styles.title}>Fast</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Linking.openSettings()}>
+        <TouchableOpacity onPress={() => Linking.openURL("https://expo.dev")}>
           <Text style={styles.title}>Open Settings</Text>
         </TouchableOpacity>
       </View>

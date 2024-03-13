@@ -18,7 +18,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.food.ordering"
+      "bundleIdentifier": "com.food.ordering",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets.",
+        "NSSpeechRecognitionUsageDescription": "Demo"
+      }
     },
     "android": {
       "package": "com.food.ordering",

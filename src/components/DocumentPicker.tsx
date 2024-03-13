@@ -27,7 +27,7 @@ const CustomDocumentPicker = () => {
 
 const styles = StyleSheet.create({
   title: {
-    color: "white",
+    color: "black",
   },
 });
 
